@@ -5,7 +5,11 @@
 
   class UserController {
     public function post() {
-      return User::insert($_POST);
+      if($_POST["login_controller"]) {
+        return User::login($_POST);  
+      } else {
+        return User::insert($_POST);
+      }
     }
 
     public function get(int $id = null) {
