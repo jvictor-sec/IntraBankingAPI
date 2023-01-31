@@ -9,5 +9,5 @@ CREATE TABLE user_table(
     user_email VARCHAR(100) NOT NULL UNIQUE,
     user_ddd CHAR(2) NOT NULL,
     user_number CHAR(9) NOT NULL,
-    user_password VARCHAR(30) NOT NULL
+    user_password VARCHAR(32) NOT NULL
 );
