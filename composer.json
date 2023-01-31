@@ -4,7 +4,8 @@
       "App\\":"App"
     },
     "files": [
-      "Config/config.php"
+      "Config/config.php",
+      "Config/Functions/functions.php"
     ]
   },
   "require": {
