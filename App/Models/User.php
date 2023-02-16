@@ -73,14 +73,14 @@
       }
     }
 
-    public static function select($user_id) {
+    public static function select($user_email) {
       $pdo_connection = new \PDO(DB_DRIVE.":host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8", DB_USER, DB_PASSWORD);
 
-      $select_all_command = "SELECT * FROM ".self::$user_table." WHERE user_id = :user_id";
+      $select_all_command = "SELECT * FROM ".self::$user_table." WHERE user_email = :user_email";
 
       $select_all_stmt = $pdo_connection->prepare($select_all_command);
 
-      $select_all_stmt->bindValue(":user_id", $user_id);
+      $select_all_stmt->bindValue(":user_email", $user_email);
 
       $select_all_stmt->execute();
 
