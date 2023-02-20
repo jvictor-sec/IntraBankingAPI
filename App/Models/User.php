@@ -93,27 +93,11 @@
       $pdo_connection = null;
     }
 
-    public static function select_all() {
-      $pdo_connection = new \PDO(DB_DRIVE.":host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8", DB_USER, DB_PASSWORD);
-
-      $select_all_command = "SELECT * FROM ".self::$user_table;
-
-      $select_all_stmt = $pdo_connection->query($select_all_command);
-
-      if($select_all_stmt->rowCount() > 0) {
-        return $select_all_stmt->fetchAll(\PDO::FETCH_OBJ);
-      } else {
-        throw new \Exception("Ocorreu um erro durante a listagem.");
-      }
-
-      $pdo_connection = null;
-    }
-
     public function update($data) {
       $pdo_connection = new \PDO(DB_DRIVE.":host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8", DB_USER, DB_PASSWORD);
 
       $email_check = unique_field_verifier(self::$user_table, "user_email", $data["user_email"], "user_id", $data["user_id"], true);
-// $valida_nome_banco = verificacao(self::$tbl_banco, "nome_banco", $dados["nome_banco"], "id_banco", $dados["id_banco"], true);
+
       if($email_check == 0) {
         $update_command = "UPDATE ".self::$user_table." SET user_name = :user_name, user_email = :user_email, user_ddd = :user_ddd,
                                                         user_number = :user_number, user_password = :user_password WHERE user_id = :user_id";
@@ -161,8 +145,7 @@
       if($delete_stmt->rowCount() > 0) {
         return "Usuário excluído com sucesso.";
       } else {
-        return $data["user_id"];
-        // throw new \Exception("Ocorreu um erro durante a exclusão.");
+        throw new \Exception("Ocorreu um erro durante a exclusão.");
       }
 
       $pdo_connection = null;

@@ -13,11 +13,7 @@
     }
 
     public function get($user_email = null) {
-      if($user_email) {
-        return User::select($user_email);
-      } else {
-        return User::select_all();
-      }
+      return User::select($user_email);
     }
 
     public function put() {

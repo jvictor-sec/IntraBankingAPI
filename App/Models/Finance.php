@@ -44,26 +44,6 @@
 
     }
 
-    // public static function select($finance_id) {
-    //   $pdo_connection = new \PDO(DB_DRIVE.":host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8", DB_USER, DB_PASSWORD);
-    //
-    //   $select_all_command = "SELECT * FROM ".self::$finance_table." WHERE finance_id = :finance_id";
-    //
-    //   $select_all_stmt = $pdo_connection->prepare($select_all_command);
-    //
-    //   $select_all_stmt->bindValue(":finance_id", $finance_id);
-    //
-    //   $select_all_stmt->execute();
-    //
-    //   if($select_all_stmt->rowCount() > 0) {
-    //     return $select_all_stmt->fetch(\PDO::FETCH_ASSOC);
-    //   } else {
-    //     throw new \Exception("Ocorreu um erro durante a listagem.");
-    //   }
-    //
-    //   $pdo_connection = null;
-    // }
-
     public static function select_all($fk_user) {
       $pdo_connection = new \PDO(DB_DRIVE.":host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8", DB_USER, DB_PASSWORD);
 
