@@ -10,11 +10,6 @@
 
     public function get(int $fk_user) {
       return Finance::select_all($fk_user);
-      // if($id) {
-      //   return Finance::select($id);
-      // } else {
-      //   return Finance::select_all();
-      // }
     }
 
     public function put() {

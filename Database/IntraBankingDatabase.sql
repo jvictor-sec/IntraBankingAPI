@@ -21,5 +21,5 @@ CREATE TABLE finance_table (
   finance_date DATE NOT NULL,
   finance_recipient VARCHAR(100),
   fk_user INT NOT NULL,
-  FOREIGN KEY (fk_user) REFERENCES user_table(user_id)
+  FOREIGN KEY (fk_user) REFERENCES user_table(user_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
